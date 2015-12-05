@@ -18,6 +18,12 @@ $cropH = $_POST['cropH'];
 // rotation angle
 $angle = $_POST['rotation'];
 
+// Relative to the original size
+$imgRelativeY = $_POST['imgRelativeY'];
+$imgRelativeX = $_POST['imgRelativeX'];
+$cropRelativeH = $_POST['cropRelativeH'];
+$cropRelativeW = $_POST['cropRelativeW'];
+
 $jpeg_quality = 100;
 
 $output_filename = "temp/croppedImg_".rand();
@@ -79,6 +85,18 @@ if(!is_writable(dirname($output_filename))){
 	// finally output png image
 	//imagepng($final_image, $output_filename.$type, $png_quality);
 	imagejpeg($final_image, $output_filename.$type, $jpeg_quality);
+
+	// 
+	// Crop the original image size in relation to the scaled version
+	//
+	/*
+		$imagick = new \Imagick();
+		$imagick->readImage(realpath($imgUrl));
+		$imagick->cropImage($cropRelativeW, $cropRelativeH, $imgRelativeX, $imgRelativeY);
+		$imagick->setImageFormat("jpeg");
+		$imagick->writeImage("temp/croppedOriginalImg_" . rand() . ".jpeg");
+	*/
+
 	$response = Array(
 	    "status" => 'success',
 	    "url" => $output_filename.$type
