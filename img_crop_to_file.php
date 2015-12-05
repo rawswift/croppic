@@ -37,7 +37,6 @@ switch(strtolower($what['mime']))
     case 'image/jpeg':
         $img_r = imagecreatefromjpeg($imgUrl);
 		$source_image = imagecreatefromjpeg($imgUrl);
-		error_log("jpg");
 		$type = '.jpeg';
         break;
     case 'image/gif':
