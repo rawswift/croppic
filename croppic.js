@@ -622,8 +622,8 @@
 					cropH:that.objH,
 					cropW:that.objW,
 					rotation:that.actualRotation,
-            		imgRelativeY:Math.ceil( that.imgInitH * ( Math.abs( parseInt( that.img.css('top') ) ) / that.imgH) ),
-            		imgRelativeX:Math.ceil( that.imgInitW * ( Math.abs( parseInt( that.img.css('left') ) ) / that.imgW) ),
+					imgRelativeY:Math.ceil( that.imgInitH * ( Math.abs( parseInt( that.img.css('top') ) ) / that.imgH) ),
+					imgRelativeX:Math.ceil( that.imgInitW * ( Math.abs( parseInt( that.img.css('left') ) ) / that.imgW) ),
 					cropRelativeH:( that.objH / that.imgH ) * that.imgInitH,
 					cropRelativeW:( that.objW / that.imgW ) * that.imgInitW
 				};
